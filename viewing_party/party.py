@@ -117,6 +117,26 @@ def get_friends_unique_watched(user_data):
 # -----------------------------------------
 # ------------- WAVE 4 --------------------
 # -----------------------------------------
+def get_available_recs(user_data):
+    '''
+    First create an empty list to hold the recommended movies
+    that will be added later.
+
+    Then get the unique list of movies in which only the friends
+    have watched from the previous function get_friends_unique_watched().
+
+    Then loop through the list of unique friends movies, check
+    to see if the platform those movies are hosted in are in the
+    user's list of subscription platforms. If yes, then those
+    movies will added to the recommendation list.
+    '''
+    rec_list = []
+    friends_unique_movies = get_friends_unique_watched(user_data)
+    for movie in friends_unique_movies:
+        if movie["host"] in user_data["subscriptions"]:
+            rec_list.append(movie)
+
+    return rec_list
 
 # -----------------------------------------
 # ------------- WAVE 5 --------------------
