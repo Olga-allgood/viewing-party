@@ -169,6 +169,8 @@ def test_moves_movie_from_watchlist_to_empty_watched():
     assert watched_movie["genre"] == GENRE_1
     assert watched_movie["rating"] == RATING_1
 
+
+
 # @pytest.mark.skip()
 def test_moves_movie_from_watchlist_to_watched():
     # Arrange
